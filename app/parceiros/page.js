@@ -1,11 +1,10 @@
-// app/associe-se/page.js
+// app/parceiros/page.js
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-// Agora importamos o novo container em vez do formulário direto
-import AssociationContent from '../../components/AssociationContent'; 
+import PartnerGrid from '../../components/PartnerGrid'; // O novo componente
 
-export default function AssocieSePage() {
+export default function PartnersPage() {
   return (
     <>
       <Header />
@@ -15,18 +14,16 @@ export default function AssocieSePage() {
         <section className="bg-black py-16 border-b border-gray-800">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-6xl font-extrabold text-white">
-                    <span className="text-amber-500">Associe-se</span> à ABRASEL
+                    Nossos <span className="text-green-700">Parceiros</span>
                 </h1>
                 <p className="text-gray-400 mt-3 text-xl">
-                    Junte-se à maior entidade de bares e restaurantes da região e fortaleça seu negócio.
+                    Conheça as empresas e instituições que fortalecem nossa missão.
                 </p>
             </div>
         </section>
 
-        {/* Seção do Conteúdo (WhatsApp + Formulário) */}
-        <section className="py-10 md:py-20 bg-gray-950">
-            <AssociationContent /> {/* <-- NOVO COMPONENTE */}
-        </section>
+        {/* Seção do Grid de Parceiros */}
+        <PartnerGrid />
 
       </main>
       <Footer />

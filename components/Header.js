@@ -13,8 +13,9 @@ const Header = () => {
   const navLinks = [
     { name: 'Notícias', href: '/noticias' },
     { name: 'Associados', href: '/associados' },
-    { name: 'Associe-se', href: '/associe-se' },
-    { name: 'Institucional', href: '/institucional' },
+    { name: 'Parceiros', href: '/parceiros' }, // <-- NOVO LINK
+    { name: 'Institucional', href: '/institucional' }, 
+    { name: 'Associe-se', href: '/associe-se', isPrimary: true },
   ];
 
   return (

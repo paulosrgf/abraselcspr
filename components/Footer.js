@@ -1,12 +1,12 @@
 // components/Footer.js
 
-'use client'; // Necessário por causa do useState para o formulário
+'use client'; 
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Send } from 'lucide-react'; // Ícone de Envio
+import { Send } from 'lucide-react'; 
 
-// Dados de navegação
+// Dados de navegação (REMOVIDO 'Contato' da lista)
 const footerNav = [
   { 
     title: 'ABRASEL', 
@@ -19,7 +19,7 @@ const footerNav = [
   { 
     title: 'Serviços', 
     links: [
-      { name: 'Associe-se', href: '/associe-se' },
+      { name: 'Associe-se (WhatsApp)', href: '/associe-se' }, // Renomeado o link para o novo foco
       { name: 'Encontre Associados', href: '/associados' },
       { name: 'Área do Associado', href: '/login' },
     ]
@@ -29,7 +29,7 @@ const footerNav = [
     links: [
       { name: 'Notícias', href: '/noticias' },
       { name: 'Eventos', href: '/eventos' },
-      { name: 'Contato', href: '/contato' },
+      { name: 'Fale Conosco', href: '/associe-se' }, // Direcionando para a página de contato (WhatsApp)
     ]
   }
 ];
@@ -108,22 +108,22 @@ const Footer = () => {
 
 
         {/* 2. Links de Navegação e Contato */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-          
-          {footerNav.map((col, index) => (
-            <div key={index}>
-              <h4 className="text-white text-lg font-bold mb-4">{col.title}</h4>
-              <ul className="space-y-2">
-                {col.links.map((link) => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="text-sm hover:text-amber-500 transition duration-300">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+       <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-10"> {/* <-- MUDANÇA: md:grid-cols-3 */}
+    
+    {footerNav.map((col, index) => (
+        <div key={index}>
+            <h4 className="text-white text-lg font-bold mb-4">{col.title}</h4>
+            <ul className="space-y-2">
+            {col.links.map((link) => (
+                <li key={link.name}>
+                <Link href={link.href} className="text-sm hover:text-amber-500 transition duration-300">
+                    {link.name}
+                </Link>
+                </li>
+            ))}
+            </ul>
+        </div>
+    ))}
 
           {/* Informações de Contato */}
           <div>

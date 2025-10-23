@@ -1,47 +1,23 @@
 // app/noticias/[slug]/page.js
 
-// O caminho correto é: .../../../components/NomeDoComponente
-import Header from '../../../components/Header'; // <-- CORREÇÃO AQUI
-import Footer from '../../../components/Footer'; // <-- CORREÇÃO AQUI
+// Correção dos caminhos de importação para subir 3 níveis (da rota dinâmica)
+import Header from '../../../components/Header'; 
+import Footer from '../../../components/Footer';
 import Image from 'next/image';
-// Remova o caminho antigo se ele não existir, o Image é importado assim mesmo
+import Link from 'next/link';
 
-// --- DADOS DE TESTE SIMULANDO UM BANCO DE DADOS ---
-// Na vida real, você buscará estes dados usando o valor de 'slug'
-const ALL_NEWS_DATA = [
-  { 
-    slug: 'sabor-solidario', 
-    title: 'ABRASEL Lança Campanha "Sabor Solidário" em Guarapuava', 
-    date: '25 DE OUTUBRO DE 2025', 
-    imageUrl: '', 
-    content: [
-      "A iniciativa Sabor Solidário, promovida pela ABRASEL Centro Sul do Paraná, é um marco na união entre gastronomia e responsabilidade social na região. O projeto visa arrecadar fundos para famílias carentes através da participação voluntária de restaurantes associados, que destinam uma porcentagem de pratos selecionados.",
-      "O lançamento oficial ocorreu na Câmara Municipal de Guarapuava, contando com a presença de autoridades locais e membros da diretoria da ABRASEL. A meta é impactar positivamente mais de 500 famílias nos próximos meses.",
-      "Participe e confira os restaurantes participantes em nossa página de Associados!"
-    ],
-    author: 'Equipe de Comunicação ABRASEL'
-  },
-  { 
-    slug: 'novos-associados', 
-    title: 'Novos Associados Impulsionam a Gastronomia do Centro Sul', 
-    date: '20 DE OUTUBRO DE 2025', 
-    imageUrl: 'https://images.unsplash.com/photo-1555547631-f155986927d2?q=80&w=2670&auto=format', 
-    content: [
-      "Com a adesão de cinco novos estabelecimentos em Pato Branco e Guarapuava, a ABRASEL Centro Sul do Paraná consolida seu crescimento e representatividade no setor. Os novos membros trazem uma variedade de culinárias, desde culinária oriental até lanchonetes artesanais.",
-      "A diretoria da ABRASEL expressou grande satisfação com a expansão, destacando que a união é fundamental para enfrentar os desafios do mercado atual e promover eventos de grande porte na região.",
-    ],
-    author: 'Assessoria de Imprensa'
-  },
-  // Mais dados de teste aqui...
-];
-
+// Importa os dados centralizados
+import { ALL_NEWS_DATA } from '../../../data/newsData'; 
 
 // Componente principal da página. Recebe o 'params' da URL.
 export default function NewsArticlePage({ params }) {
   const { slug } = params;
   
-  // Na vida real, você usaria fetch para buscar a notícia pelo slug
-  const article = ALL_NEWS_DATA.find(item => item.slug === slug);
+  // 1. Aplica o toLowerCase() no slug da URL para garantir que a busca não seja case-sensitive
+  const cleanSlug = slug.toLowerCase(); 
+
+  // 2. Busca a notícia: compara o slug da URL com o slug nos dados
+  const article = ALL_NEWS_DATA.find(item => item.slug.toLowerCase() === cleanSlug);
 
   // Tratamento caso a notícia não seja encontrada
   if (!article) {
@@ -50,7 +26,10 @@ export default function NewsArticlePage({ params }) {
         <Header />
         <main className="bg-gray-950 text-white min-h-screen py-20 text-center">
             <h1 className="text-4xl font-extrabold text-amber-500">Notícia Não Encontrada (404)</h1>
-            <p className="text-gray-400 mt-4">Verifique o endereço: /noticias/{slug}</p>
+            <p className="text-gray-400 mt-4">A notícia que você procurava pode ter sido removida.</p>
+            <Link href="/noticias" className="mt-6 inline-block text-amber-500 hover:text-amber-400 underline">
+                &larr; Voltar para a lista de notícias
+            </Link>
         </main>
         <Footer />
       </>
@@ -86,25 +65,33 @@ export default function NewsArticlePage({ params }) {
         </section>
 
         {/* Corpo do Artigo */}
-        <section className="py-16">
+        <article className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            {/* Renderiza os parágrafos do Array de Conteúdo */}
-            {article.content.map((paragraph, index) => (
-                <p key={index} className="text-lg text-gray-300 mb-6 leading-relaxed">
-                    {paragraph}
-                </p>
-            ))}
-            
-            {/* CTA de Rodapé */}
-            <div className="mt-10 pt-6 border-t border-gray-800">
-                <p className="text-xl text-amber-500 font-semibold">
-                    Quer saber mais? Visite a nossa página de Eventos ou Associados!
-                </p>
-            </div>
+            {/* Renderização de parágrafos com destaque para o CTA final */}
+            {article.content.map((paragraph, index) => {
+                // Checa se é o último parágrafo e contém a frase de associação
+                const isFinalCTA = index === article.content.length - 1 && paragraph.includes('associado Abrasel');
 
+                if (isFinalCTA) {
+                    return (
+                        <div key={index} className="mt-10 p-6 bg-gray-800 rounded-lg border-l-4 border-amber-500 shadow-lg text-center">
+                            <Link href="/associe-se" className="text-xl font-bold text-amber-500 hover:text-amber-400 transition">
+                                {paragraph}
+                            </Link>
+                        </div>
+                    );
+                }
+
+                return (
+                    <p key={index} className="text-lg text-gray-300 mb-6 leading-relaxed">
+                        {paragraph}
+                    </p>
+                );
+            })}
+            
           </div>
-        </section>
+        </article>
 
       </main>
       <Footer />
