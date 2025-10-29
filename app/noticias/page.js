@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import NewsHighlightCard from '../../components/NewsHighlightCard';
 import { ALL_NEWS_DATA } from '../../data/newsData'; // <-- NOVO IMPORT DOS DADOS
+import Link from 'next/link';
 
 export default function NoticiasPage() {
   // A lista de notícias agora vem do arquivo centralizado
@@ -41,7 +42,29 @@ export default function NoticiasPage() {
                 </div>
             </div>
         </section>
+<section className="py-20 bg-gray-950">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-extrabold text-white mb-8 text-center">
+            Acompanhe a <span className="text-green-700">ABRASEL Nacional</span>
+        </h2>
+        
+        <div className="w-full h-[600px] bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+            {/* 🚨 Integração via iFrame - Direciona para o site nacional */}
+            <iframe 
+                src="https://abrasel.com.br/noticias/" 
+                title="Notícias da Abrasel Nacional"
+                className="w-full h-full border-0"
+                loading="lazy"
+            >
+            </iframe>
+        </div>
 
+        <p className="text-center text-gray-500 mt-4 text-sm">
+            Conteúdo fornecido pelo site oficial da Abrasel (Nacional).
+        </p>
+
+    </div>
+</section>
       </main>
       <Footer />
     </>

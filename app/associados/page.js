@@ -5,21 +5,22 @@
 import { useState, useMemo } from 'react'; 
 import Header from '../../components/Header'; 
 import Footer from '../../components/Footer';
-import AssociateCard from '../../components/AssociateCard'; // Card visual (para destaque)
-import CompactAssociateRow from '../../components/CompactAssociateRow'; // Linha compacta (para lista)
-import { ALL_ASSOCIATES_DATA, AVAILABLE_CITIES } from '../../data/associatesData'; // Dados
+import AssociateCard from '../../components/AssociateCard'; // Para cards de destaque
+import CompactAssociateRow from '../../components/CompactAssociateRow'; // Para a lista simples
+// 🚨 REMOVIDO: MapPlaceholder e a importação de seu arquivo
+import { ALL_ASSOCIATES_DATA, AVAILABLE_CITIES } from '../../data/associatesData'; // Dados e Cidades
 
 export default function AssociadosPage() {
   const [selectedCity, setSelectedCity] = useState('Todas as Cidades');
   
-  // 1. Filtragem da lista completa
+  // 1. Lógica de Filtragem
   const allFilteredAssociates = useMemo(() => {
     return ALL_ASSOCIATES_DATA.filter(associate => 
       selectedCity === 'Todas as Cidades' || associate.city === selectedCity
     );
   }, [selectedCity]);
   
-  // 2. Separação dos destaques e da lista compacta
+  // 2. Separação dos Destaques (isNew) e da Lista Compacta
   const featuredAssociates = allFilteredAssociates.filter(a => a.isNew);
   const compactAssociates = allFilteredAssociates.filter(a => !a.isNew);
 
@@ -38,7 +39,7 @@ export default function AssociadosPage() {
             </div>
         </section>
 
-        {/* Seção Principal de Filtro */}
+        {/* Seção Principal de Filtro e Listas */}
         <section className="py-16 bg-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -80,19 +81,19 @@ export default function AssociadosPage() {
                 {/* ------------------------------------------------------------- */}
                 {/* 2. LISTA COMPACTA (150+ Associados) */}
                 {/* ------------------------------------------------------------- */}
-                <h2 className={`text-3xl font-extrabold text-white mb-6 text-center ${featuredAssociates.length > 0 ? 'pt-10 border-t border-gray-800' : ''}`}>
+                <h2 className="text-3xl font-extrabold text-white mb-6 text-center pt-10 border-t border-gray-800">
                     Lista Completa ({compactAssociates.length})
                 </h2>
                 
                 <div className="bg-gray-800 rounded-lg shadow-xl overflow-hidden">
                     
-                    {/* Cabeçalho da Lista Compacta (Apenas para telas grandes) */}
-                    <div className="hidden md:grid grid-cols-4 text-xs uppercase font-bold text-gray-400 bg-gray-700/50 p-4 sticky top-0">
-                        <span className="md:col-span-1">Estabelecimento</span>
-                        <span>Cidade</span>
-                        <span className="md:col-span-1">Contato</span>
-                        <span className="md:col-span-1">Endereço</span>
-                    </div>
+                    {/* Cabeçalho da Lista Compacta (3 Colunas + Ação) */}
+                 <div className="hidden md:grid grid-cols-4 text-xs uppercase font-bold text-gray-400 bg-gray-700/50 p-4 sticky top-0">
+    <span className="md:col-span-1">Estabelecimento</span>
+    <span>Cidade</span>
+    <span>Especialidade</span>
+    <span className="text-right">Ação</span> {/* Alinhado à direita para o botão */}
+</div>
 
                     {/* Linhas da Lista */}
                     {compactAssociates.map(associate => (

@@ -1,16 +1,29 @@
 // components/AssociateCard.js
 
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
+// Ícone ArrowRight (Seta) para 'Saber Mais'
+import { Search, Instagram, ArrowRight } from 'lucide-react'; 
 
-// Dados que o card receberá
-const AssociateCard = ({ name, specialty, imageUrl, city, slug }) => {
+// Recebe searchQuery e socialLink
+const AssociateCard = ({ name, specialty, imageUrl, city, searchQuery, socialLink }) => {
+  
+  // Define o link principal de ação: prioriza Google Search, usa Instagram como fallback.
+  const actionLink = socialLink 
+    ? socialLink 
+    : `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+  
+  // Define o ícone de contexto para a animação
+  const ContextIcon = socialLink ? Instagram : Search;
+  const ctaText = "Saber Mais"; // CTA único
+
   return (
-    <Link 
-      href={`/associados/${slug}`} 
-      className="block group relative rounded-lg overflow-hidden shadow-2xl transition duration-300 ease-in-out hover:shadow-amber-500/50 hover:scale-[1.02]"
+    // Usa <a> para links externos
+    <a 
+      href={actionLink} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="block group relative rounded-lg overflow-hidden shadow-2xl transition duration-300 ease-in-out hover:scale-[1.03] hover:shadow-green-700/50" 
     >
       <div className="relative h-64 w-full">
         {/* Imagem do Restaurante */}
@@ -29,22 +42,21 @@ const AssociateCard = ({ name, specialty, imageUrl, city, slug }) => {
       {/* Conteúdo na parte inferior do Card */}
       <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/70 to-transparent">
         
-        {/* Nome do Restaurante */}
         <h3 className="text-3xl font-serif text-white mb-1 leading-tight">
           {name}
         </h3>
         
-        {/* Especialidade e Cidade */}
         <p className="text-amber-500 font-semibold uppercase text-sm mb-2">
           {specialty} - {city}
         </p>
         
-        {/* CTA (Chamada para Ação) sutil */}
-        <span className="text-sm text-gray-300 group-hover:text-amber-500 transition duration-300">
-          Ver Perfil &rarr;
+        {/* Botão de Ação Sutil */}
+        <span className="inline-flex items-center mt-2 text-sm text-green-500 font-medium group-hover:text-green-400">
+          <ArrowRight className="w-4 h-4 mr-1" />
+          {ctaText}
         </span>
       </div>
-    </Link>
+    </a>
   );
 };
 
