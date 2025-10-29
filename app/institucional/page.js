@@ -6,9 +6,30 @@ import Image from 'next/image';
 
 // Dados de Exemplo da Gestão
 const MANAGEMENT_TEAM = [
-  { id: 1, name: 'João Rogério', position: 'Presidente', imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a816e91f42e?q=80&w=2670&auto=format', bio: 'Lidera a ABRASEL desde 2025, com foco em inovação e apoio ao empreendedorismo regional.' },
-  { id: 2, name: 'Rosimeri Mangueiroski', position: 'Vice-Presidente', imageUrl: '', bio: 'Especialista em turismo gastronômico e relações institucionais.' },
-  { id: 3, name: 'Pedro Alves', position: 'Diretor Financeiro', imageUrl: 'https://images.unsplash.com/photo-1557862921-377533127ec8?q=80&w=2670&auto=format', bio: 'Responsável pela sustentabilidade e crescimento financeiro da associação.' },
+  { 
+    id: 1, 
+    name: 'João da Silva', 
+    position: 'Presidente', 
+    // 🚨 NOVO CAMINHO LOCAL: A imagem deve estar em public/management/presidente-joao.jpg
+    imageUrl: '/management/presidente-joao.jpg', 
+    bio: 'Lidera a ABRASEL desde 2023, com foco em inovação e apoio ao empreendedorismo regional.' 
+  },
+  { 
+    id: 2, 
+    name: 'Maria Souza', 
+    position: 'Vice-Presidente', 
+    // 🚨 NOVO CAMINHO LOCAL: A imagem deve estar em public/management/vice-maria.jpg
+    imageUrl: '/management/terceiro-gestao.jpg', 
+    bio: 'Especialista em turismo gastronômico e relações institucionais.' 
+  },
+  { 
+    id: 3, 
+    name: 'Pedro Alves', 
+    position: 'Diretor Financeiro', 
+    // 🚨 NOVO CAMINHO LOCAL: A imagem deve estar em public/management/diretor-pedro.jpg
+    imageUrl: '/management/vice-presidente.jpeg', 
+    bio: 'Responsável pela sustentabilidade e crescimento financeiro da associação.' 
+  },
 ];
 
 export default function InstitucionalPage() {

@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projeto ABRASEL Centro Sul do Paraná
 
-## Getting Started
+Este é o site institucional da ABRASEL Centro Sul do Paraná, construído com **Next.js 14 (App Router)** e **Tailwind CSS**.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework:** Next.js 14
+- **Estilização:** Tailwind CSS
+- **Hospedagem Recomendada:** Vercel (para suporte total ao Next.js)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Como Colocar no Ar (Deploy)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+O deploy é configurado para ser feito de forma contínua através da Vercel:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  Crie uma conta gratuita na [Vercel](https://vercel.com/).
+2.  Importe este repositório do GitHub.
+3.  A Vercel identificará automaticamente as configurações do Next.js e fará o deploy.
+4.  Qualquer `git push` subsequente para a branch `main` atualizará o site automaticamente.
 
-## Learn More
+## 🛠️ Manutenção e Atualização de Conteúdo
 
-To learn more about Next.js, take a look at the following resources:
+O conteúdo é gerenciado através de arquivos JavaScript/JSON locais, conforme definido na Fase 1.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **1. Adicionar/Editar Associados (Fase 2)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Para adicionar novos estabelecimentos:
 
-## Deploy on Vercel
+- Edite o arquivo **`data/associatesData.js`**.
+- Adicione um novo objeto ao array `ALL_ASSOCIATES_DATA` seguindo a estrutura padrão.
+- Após a edição, execute os comandos `git add .`, `git commit -m "msg"` e `git push origin main`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **2. Adicionar/Editar Notícias**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para adicionar novas notícias:
+
+- Edite o arquivo **`data/newsData.js`**.
+- Adicione um novo objeto ao array `ALL_NEWS_DATA`.
+- As páginas de notícia individual são geradas dinamicamente com base no `slug`.
+
+### **3. Adicionar Eventos**
+
+Para gerenciar a agenda:
+
+- Edite o arquivo **`data/eventsData.js`**.
+- Adicione um novo objeto ao array `ALL_EVENTS_DATA`.
+
+---
+
+_Desenvolvido por [Paulo Sergio do Amaral Filho]_
