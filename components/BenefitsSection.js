@@ -1,14 +1,27 @@
 // components/BenefitsSection.js
 
 import { ASSOCIATION_BENEFITS } from '../data/benefitsData';
+import Image from 'next/image'; 
+import { DollarSign, Zap, Users, Megaphone, LifeBuoy } from 'lucide-react'; 
 
 const BenefitsSection = () => {
     return (
         <section className="py-20 bg-gray-900">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-4">
-                    Por Que Associar-se à <span className="text-amber-500">ABRASEL</span>?
+                {/* 🚨 CORRIGIDO: H2 Responsivo */}
+                <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4 flex justify-center items-center leading-tight">
+                    Por que ser um associado
+                    <Image
+                        src="/logos/abrasel-verde.png" 
+                        alt="ABRASEL"
+                        // Tamanho para Mobile (Base)
+                        width={120} 
+                        height={25}
+                        // 🚨 Tamanho para Desktop (md:) e margens
+                        className="ml-2 mr-2 md:w-[160px] md:h-[30px]" 
+                    />
+                    ?
                 </h2>
                 <p className="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto">
                     Transforme seu negócio com acesso a vantagens exclusivas, suporte especializado e a força da maior representatividade do setor.
@@ -24,7 +37,6 @@ const BenefitsSection = () => {
                         >
                             {/* Ícone e Título */}
                             <div className="flex items-center mb-4">
-                                {/* O ícone é um componente LucideReact passado no Array */}
                                 <benefit.icon className="w-8 h-8 text-green-500 mr-3 flex-shrink-0" />
                                 <h3 className="text-xl font-bold text-white leading-snug">
                                     {benefit.title}
