@@ -2,19 +2,27 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuração para permitir o carregamento de imagens de domínios externos
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com', // DOMÍNIO DAS IMAGENS DE TESTE
-        port: '',
-        pathname: '/**', 
-      },
-      // Adicione aqui outros domínios de imagens se for usar
-    ],
-  },
+    // 🚨 BLOCO DE IMAGENS ATUALIZADO
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'unsplash.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.pexels.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'cdn.pixabay.com',
+            },
+        ],
+    },
 };
 
-// Exportamos a configuração usando a sintaxe ES Module
 export default nextConfig;

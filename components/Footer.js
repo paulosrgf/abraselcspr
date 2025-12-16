@@ -19,7 +19,7 @@ const footerNav = [
     links: [
       { name: 'Associe-se (WhatsApp)', href: '/associe-se' }, 
       { name: 'Encontre Associados', href: '/associados' },
-      { name: 'Área do Associado', href: '/login' },
+      // 🚨 REMOVIDO: Área do Associado
     ]
   },
   { 
