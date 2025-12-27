@@ -235,6 +235,8 @@ export const ALL_ASSOCIATES_DATA = [
     { id: 209, name: 'VIAJAR MAIS TURISMO', specialty: 'Serviços / Turismo', city: 'Guarapuava', slug: 'viajar-mais-turismo', searchQuery: 'VIAJAR MAIS TURISMO Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 210, name: 'ZERO42 SANTA CRUZ', specialty: 'Hamburgueria', city: 'Guarapuava', slug: 'zero42-santa-cruz', searchQuery: 'ZERO42 SANTA CRUZ Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },    { id: 212, name: 'ZEZÃO RIB', specialty: 'Restaurante', city: 'Guarapuava', slug: 'zezao-ribz', searchQuery: 'ZEZÃO RIBZ Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 211, name: 'ZUP ACESSORIOS', specialty: 'Serviços / Acessórios', city: 'Guarapuava', slug: 'zup-acessorios', searchQuery: 'ZUP ACESSORIOS Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
+
+//verificar tudo depois!!!
 ];
 
 const uniqueCities = [...new Set(ALL_ASSOCIATES_DATA.map(associate => associate.city))];
