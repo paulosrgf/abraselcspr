@@ -1,5 +1,3 @@
-// components/HeroSection.js
-
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -10,11 +8,11 @@ import Image from 'next/image';
 const heroSlides = [
   {
     id: 1,
-    title: 'JUNTOS, FORTES', 
-    subtitle: 'A união que fortalece o setor de Bares e Restaurantes no Centro Sul do Paraná.',
+    // Note que separei a frase principal para aplicar estilos diferentes no render
+    title: 'JUNTOS SOMOS FORTES', 
+    subtitle: 'ABRASEL: UNIÃO QUE TRANSFORMA',
     ctaText: 'Associe-se Agora',
     ctaLink: '/associe-se',
-    // 🚨 Imagem Local 1
     imageUrl: '/images/carrossel-um.jpg' 
   },
   {
@@ -23,16 +21,14 @@ const heroSlides = [
     subtitle: 'Fique por dentro das novidades e capacitações da região.',
     ctaText: 'Ver Agenda',
     ctaLink: '/eventos', 
-    // 🚨 Imagem Local 2
     imageUrl: '/images/carrossel-dois.jpg' 
   },
   {
     id: 3,
-    title: 'CONHEÇA NOSSOS ASSOCIADOS',
-    subtitle: 'Descubra os melhores estabelecimentos da região. Qualidade e sabor garantidos.',
+    title: 'NOSSOS ASSOCIADOS',
+    subtitle: 'Descubra os melhores estabelecimentos da região Centro Sul.',
     ctaText: 'Ver Lista Completa',
     ctaLink: '/associados',
-    // 🚨 Imagem Local 3
     imageUrl: '/images/carrossel-tres.jpg' 
   },
 ];
@@ -49,14 +45,13 @@ const HeroSection = () => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
   };
 
-  // Autoplay a cada 7 segundos
   useEffect(() => {
     const interval = setInterval(nextSlide, 7000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
   return (
-    <div className="relative w-full h-[450px] md:h-[600px] overflow-hidden bg-black">
+    <div className="relative w-full h-[500px] md:h-[700px] overflow-hidden bg-black">
       
       {heroSlides.map((slide, index) => (
         <div
@@ -65,37 +60,57 @@ const HeroSection = () => {
             index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         >
-          {/* Tratamento da Imagem de Fundo */}
+          {/* Imagem de Fundo com Overlay */}
           <div className="relative w-full h-full">
             <Image
               src={slide.imageUrl}
               alt={slide.title}
               fill
               priority={index === 0}
-              className="object-cover" // Preenche sem esticar a imagem
+              className="object-cover"
             />
-            {/* Overlay escuro para garantir leitura do texto branco/âmbar */}
-            <div className="absolute inset-0 bg-black/45"></div>
+            <div className="absolute inset-0 bg-black/50"></div>
           </div>
 
           {/* Conteúdo Centralizado */}
           <div className="absolute inset-0 flex items-center justify-center text-center p-4">
-            <div className="max-w-4xl z-20 px-4">
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-amber-400 mb-4 tracking-tight leading-tight drop-shadow-lg">
-                {slide.title}
-              </h2>
-              <p className="text-xl md:text-2xl text-white mb-8 font-light drop-shadow-md">
-                {slide.subtitle}
-              </p>
+            <div className="max-w-5xl z-20 px-4">
+              
+              {/* Lógica Diferenciada para o Slide 1 (A Assinatura da Abrasel) */}
+              {index === 0 ? (
+                <>
+                  <span className="inline-block text-amber-500 font-black text-xs md:text-sm uppercase tracking-[0.5em] mb-6 drop-shadow-md">
+                    Abrasel Centro Sul PR
+                  </span>
+                  <h2 className="text-5xl md:text-9xl font-black text-white tracking-tighter uppercase leading-[0.85] mb-8">
+                    JUNTOS SOMOS <br />
+                    <span className="text-green-600">FORTES</span>
+                  </h2>
+                  <div className="w-24 h-2 bg-white mx-auto rounded-full mb-8"></div>
+                  <p className="text-lg md:text-3xl font-bold text-gray-100 tracking-[0.2em] uppercase italic mb-10">
+                    União que <span className="text-amber-500 not-italic font-black">transforma</span>
+                  </p>
+                </>
+              ) : (
+                /* Estilo Padrão para os outros slides */
+                <>
+                  <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase leading-tight">
+                    {slide.title}
+                  </h2>
+                  <p className="text-xl md:text-2xl text-gray-200 mb-10 font-medium max-w-2xl mx-auto">
+                    {slide.subtitle}
+                  </p>
+                </>
+              )}
               
               <Link
                 href={slide.ctaLink}
-                className={`inline-flex items-center justify-center px-10 py-4 
-                            text-lg font-bold uppercase tracking-wider rounded-lg shadow-2xl transition duration-300 transform hover:scale-105
+                className={`inline-flex items-center justify-center px-12 py-5 
+                            text-lg font-black uppercase tracking-widest rounded-2xl shadow-2xl transition duration-300 transform hover:scale-105
                             ${
                                 slide.ctaText === 'Associe-se Agora' 
-                                    ? 'bg-green-700 text-white hover:bg-green-600'
-                                    : 'bg-amber-500 text-black hover:bg-amber-400'
+                                    ? 'bg-green-700 text-white hover:bg-green-600 shadow-green-900/40'
+                                    : 'bg-white text-black hover:bg-gray-100 shadow-white/10'
                             }`}
               >
                 {slide.ctaText}
@@ -108,25 +123,25 @@ const HeroSection = () => {
       {/* Setas de Navegação */}
       <button 
         onClick={prevSlide} 
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/20 hover:bg-black/50 text-white transition-all hidden md:block"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-2xl bg-white/5 hover:bg-white/20 text-white transition-all backdrop-blur-sm hidden md:block"
       >
-        <ChevronLeft size={48} />
+        <ChevronLeft size={40} />
       </button>
       <button 
         onClick={nextSlide} 
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/20 hover:bg-black/50 text-white transition-all hidden md:block"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-2xl bg-white/5 hover:bg-white/20 text-white transition-all backdrop-blur-sm hidden md:block"
       >
-        <ChevronRight size={48} />
+        <ChevronRight size={40} />
       </button>
 
-      {/* Indicadores (Dots) */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+      {/* Indicadores (Dots) Progressivos */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex space-x-4">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`h-1.5 transition-all duration-300 rounded-full ${
-              index === currentSlide ? 'bg-amber-400 w-10' : 'bg-white/40 w-4 hover:bg-white/70'
+            className={`h-1.5 transition-all duration-500 rounded-full ${
+              index === currentSlide ? 'bg-green-600 w-16' : 'bg-white/20 w-6 hover:bg-white/50'
             }`}
             aria-label={`Ir para slide ${index + 1}`}
           />

@@ -20,10 +20,7 @@ export const ALL_ASSOCIATES_DATA = [
     // IDs 1 a 3 (Inseridos aqui novamente para completar o array, 
     //            mesmo estando em FEATURED_ASSOCIATES)
     // -------------------------------------------------------------
-    { id: 1, name: 'BIG KNIFE BBQ', specialty: 'Churrasco Americano', city: 'Guarapuava', slug: 'big-knife-bbq', searchQuery: 'BIG KNIFE BBQ Guarapuava', socialLink: 'https://instagram.com/bigknifebbq', imageUrl: '/logos/bigknifebbq.png' },
-    { id: 2, name: 'ZERO42 PIZZARIA', specialty: 'Pizzaria', city: 'Guarapuava', slug: 'zero42-pizzaria', searchQuery: 'ZERO42 PIZZARIA Guarapuava', socialLink: 'https://instagram.com/zero42pizzaria', imageUrl: '/logos/zero42.png' },
-    { id: 3, name: 'BOLETA CAFÉ', specialty: 'Cafeteria', city: 'Guarapuava', slug: 'boleta-cafe', searchQuery: 'BOLETA CAFÉ Guarapuava', socialLink: 'https://instagram.com/boletacafe', imageUrl: '/logos/boletacafe.png' },
-
+   
     // -------------------------------------------------------------
     // IDs 4 a 168 (Associados restantes em ordem alfabética aproximada)
     // -------------------------------------------------------------
@@ -54,6 +51,7 @@ export const ALL_ASSOCIATES_DATA = [
     { id: 28, name: 'BENDITO GRILL', specialty: 'Churrascaria / Grill', city: 'Guarapuava', slug: 'bendito-grill', searchQuery: 'BENDITO GRILL Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 29, name: 'BENZÊ CAFÉ', specialty: 'Cafeteria', city: 'Guarapuava', slug: 'benze-cafe', searchQuery: 'BENZÊ CAFÉ Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 30, name: 'BHAAA LANCHES', specialty: 'Lanchonete', city: 'Guarapuava', slug: 'bhaaa-lanches', searchQuery: 'BHAAA LANCHES Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
+    { id: 1, name: 'BIG KNIFE BBQ', specialty: 'Churrasco Americano', city: 'Guarapuava', slug: 'big-knife-bbq', searchQuery: 'BIG KNIFE BBQ Guarapuava', socialLink: 'https://instagram.com/bigknifebbq', imageUrl: '/logos/bigknifebbq.png' },
     { id: 31, name: 'Bolos Anayne', specialty: 'Confeitaria / Bolos', city: 'Guarapuava', slug: 'bolos-anayne', searchQuery: 'Bolos Anayne Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 32, name: 'BOM DIA PADARIA', specialty: 'Panificadora', city: 'Guarapuava', slug: 'bom-dia-padaria', searchQuery: 'BOM DIA PADARIA Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 33, name: "BONFA'S GASTRONOMY EVENTOS (BOULEVARD", specialty: 'Buffet / Eventos', city: 'Guarapuava', slug: 'bonfas-gastronomy', searchQuery: "BONFA'S GASTRONOMY EVENTOS BOULEVARD Guarapuava", socialLink: '', imageUrl: '/logos/placeholder.png' },
@@ -233,10 +231,10 @@ export const ALL_ASSOCIATES_DATA = [
     { id: 207, name: 'TRINCAUS TRUFAS', specialty: 'Confeitaria / Trufas', city: 'Guarapuava', slug: 'trincaus-trufas', searchQuery: 'TRINCAUS TRUFAS Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 208, name: 'TV PLAY COMUNICACAO E ASSESSORIA', specialty: 'Serviços / Comunicação', city: 'Guarapuava', slug: 'tv-play-comunicacao', searchQuery: 'TV PLAY COMUNICACAO E ASSESSORIA Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 209, name: 'VIAJAR MAIS TURISMO', specialty: 'Serviços / Turismo', city: 'Guarapuava', slug: 'viajar-mais-turismo', searchQuery: 'VIAJAR MAIS TURISMO Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
+    { id: 2, name: 'ZERO42 PIZZARIA', specialty: 'Pizzaria', city: 'Guarapuava', slug: 'zero42-pizzaria', searchQuery: 'ZERO42 PIZZARIA Guarapuava', socialLink: 'https://instagram.com/zero42pizzaria', imageUrl: '/logos/zero42.png' },
     { id: 210, name: 'ZERO42 SANTA CRUZ', specialty: 'Hamburgueria', city: 'Guarapuava', slug: 'zero42-santa-cruz', searchQuery: 'ZERO42 SANTA CRUZ Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },    { id: 212, name: 'ZEZÃO RIB', specialty: 'Restaurante', city: 'Guarapuava', slug: 'zezao-ribz', searchQuery: 'ZEZÃO RIBZ Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
     { id: 211, name: 'ZUP ACESSORIOS', specialty: 'Serviços / Acessórios', city: 'Guarapuava', slug: 'zup-acessorios', searchQuery: 'ZUP ACESSORIOS Guarapuava', socialLink: '', imageUrl: '/logos/placeholder.png' },
 
-//verificar tudo depois!!!
 ];
 
 const uniqueCities = [...new Set(ALL_ASSOCIATES_DATA.map(associate => associate.city))];

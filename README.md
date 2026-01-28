@@ -1,49 +1,72 @@
-# Projeto ABRASEL Centro Sul do Paraná
+Abrasel Centro Sul do Paraná - Portal Institucional
+Este é o portal oficial da Abrasel (Associação Brasileira de Bares e Restaurantes) - Seccional Centro Sul do Paraná. O projeto foi desenvolvido para oferecer uma interface moderna, rápida e funcional, servindo como ponto de conexão entre a entidade, seus associados e o público em geral.
 
-Este é o site institucional da ABRASEL Centro Sul do Paraná, construído com **Next.js 14 (App Router)** e **Tailwind CSS**.
+🚀 Tecnologias Utilizadas
+Next.js 14/15 - Framework React para produção.
 
-## 🚀 Tecnologias Utilizadas
+Tailwind CSS - Estilização focada em performance e design responsivo.
 
-- **Framework:** Next.js 14
-- **Estilização:** Tailwind CSS
-- **Hospedagem Recomendada:** Vercel (para suporte total ao Next.js)
+Lucide React - Pacote de ícones minimalistas.
 
-## 📦 Como Colocar no Ar (Deploy)
+Framer Motion - Animações de interface.
 
-O deploy é configurado para ser feito de forma contínua através da Vercel:
+Vercel - Deployment e infraestrutura.
 
-1.  Crie uma conta gratuita na [Vercel](https://vercel.com/).
-2.  Importe este repositório do GitHub.
-3.  A Vercel identificará automaticamente as configurações do Next.js e fará o deploy.
-4.  Qualquer `git push` subsequente para a branch `main` atualizará o site automaticamente.
+🛠️ Funcionalidades Implementadas
+Gestão de Associados: Sistema de filtragem e busca dinâmica por nome e cidade (Guarapuava, Irati, Pinhão, etc.).
 
-## 🛠️ Manutenção e Atualização de Conteúdo
+Agenda de Eventos 2026: Calendário completo com filtros por abrangência (Local, Nacional e Internacional).
 
-O conteúdo é gerenciado através de arquivos JavaScript/JSON locais, conforme definido na Fase 1.
+Seção Institucional: Apresentação da diretoria com enquadramento de imagem otimizado via CSS.
 
-### **1. Adicionar/Editar Associados (Fase 2)**
+Fidelidade e Parceiros: Grade de empresas parceiras com tratamento visual em grayscale.
 
-Para adicionar novos estabelecimentos:
+Associe-se: Formulário integrado e canal direto via WhatsApp para novos associados.
 
-- Edite o arquivo **`data/associatesData.js`**.
-- Adicione um novo objeto ao array `ALL_ASSOCIATES_DATA` seguindo a estrutura padrão.
-- Após a edição, execute os comandos `git add .`, `git commit -m "msg"` e `git push origin main`.
+Design Unificado: Identidade visual baseada no padrão "White & Slate", garantindo legibilidade e seriedade.
 
-### **2. Adicionar/Editar Notícias**
+📂 Estrutura de Pastas
+/app: Rotas e páginas principais do sistema.
 
-Para adicionar novas notícias:
+/components: Componentes reutilizáveis (Header, Footer, Hero, etc.).
 
-- Edite o arquivo **`data/newsData.js`**.
-- Adicione um novo objeto ao array `ALL_NEWS_DATA`.
-- As páginas de notícia individual são geradas dinamicamente com base no `slug`.
+/data: Arquivos de configuração e bases de dados estáticas (Associados, Eventos).
 
-### **3. Adicionar Eventos**
+/public: Ativos estáticos como logos e fotos da diretoria.
 
-Para gerenciar a agenda:
+💻 Como Rodar o Projeto Localmente
+Clone o repositório:
 
-- Edite o arquivo **`data/eventsData.js`**.
-- Adicione um novo objeto ao array `ALL_EVENTS_DATA`.
+Bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+Instale as dependências:
 
----
+Bash
+npm install
+# ou
+yarn install
+Inicie o servidor de desenvolvimento:
 
-_Desenvolvido por [Paulo Sergio do Amaral Filho]_
+Bash
+npm run dev
+# ou
+yarn dev
+Acesse no navegador: http://localhost:3000
+
+🌐 Deploy
+O projeto está configurado para deploy contínuo via Vercel. Cada atualização na branch main reflete automaticamente no ambiente de produção.
+
+📄 Licença
+Este projeto é de uso exclusivo da Abrasel Centro Sul do Paraná.
+
+Como adicionar ao seu projeto:
+Crie um arquivo chamado README.md na raiz da sua pasta.
+
+Cole o texto acima.
+
+Salve e faça o commit:
+
+Bash
+git add README.md
+git commit -m "docs: add professional readme"
+git push origin main
