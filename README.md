@@ -1,72 +1,49 @@
-Abrasel Centro Sul do Paraná - Portal Institucional
-Este é o portal oficial da Abrasel (Associação Brasileira de Bares e Restaurantes) - Seccional Centro Sul do Paraná. O projeto foi desenvolvido para oferecer uma interface moderna, rápida e funcional, servindo como ponto de conexão entre a entidade, seus associados e o público em geral.
+# 🍽️ Portal Abrasel Centro Sul PR
 
-🚀 Tecnologias Utilizadas
-Next.js 14/15 - Framework React para produção.
+Este é o portal oficial da **ABRASEL (Associação Brasileira de Bares e Restaurantes) - Seccional Centro Sul do Paraná**. Desenvolvido para facilitar a associação de novos estabelecimentos, divulgar eventos regionais e fortalecer a gastronomia local.
 
-Tailwind CSS - Estilização focada em performance e design responsivo.
+## 🚀 Tecnologias Utilizadas
 
-Lucide React - Pacote de ícones minimalistas.
+- **Framework:** [Next.js 14+](https://nextjs.org/) (App Router)
+- **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
+- **Ícones:** [Lucide React](https://lucide.dev/)
+- **Envio de E-mail:** [Nodemailer](https://nodemailer.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
-Framer Motion - Animações de interface.
+## 🛠️ Funcionalidades
 
-Vercel - Deployment e infraestrutura.
+- ✅ **Sistema de Leads:** Formulário de associação com envio automático de e-mail via API Route.
+- ✅ **Gestão de Associados:** Páginas dinâmicas para cada estabelecimento parceiro.
+- ✅ **Agenda de Eventos:** Calendário interativo de eventos regionais e nacionais.
+- ✅ **Design Responsivo:** Totalmente adaptado para dispositivos móveis e desktop.
 
-🛠️ Funcionalidades Implementadas
-Gestão de Associados: Sistema de filtragem e busca dinâmica por nome e cidade (Guarapuava, Irati, Pinhão, etc.).
+## 📦 Como rodar o projeto localmente
 
-Agenda de Eventos 2026: Calendário completo com filtros por abrangência (Local, Nacional e Internacional).
-
-Seção Institucional: Apresentação da diretoria com enquadramento de imagem otimizado via CSS.
-
-Fidelidade e Parceiros: Grade de empresas parceiras com tratamento visual em grayscale.
-
-Associe-se: Formulário integrado e canal direto via WhatsApp para novos associados.
-
-Design Unificado: Identidade visual baseada no padrão "White & Slate", garantindo legibilidade e seriedade.
-
-📂 Estrutura de Pastas
-/app: Rotas e páginas principais do sistema.
-
-/components: Componentes reutilizáveis (Header, Footer, Hero, etc.).
-
-/data: Arquivos de configuração e bases de dados estáticas (Associados, Eventos).
-
-/public: Ativos estáticos como logos e fotos da diretoria.
-
-💻 Como Rodar o Projeto Localmente
-Clone o repositório:
-
-Bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-Instale as dependências:
+1. **Clone o repositório:**
+   ```bash
+   git clone [(https://github.com/paulosrgf/abraselcspr.git)]
+   Instale as dependências:
+   ```
 
 Bash
 npm install
-# ou
-yarn install
-Inicie o servidor de desenvolvimento:
+Configure o .env.local:
 
-Bash
-npm run dev
-# ou
-yarn dev
-Acesse no navegador: http://localhost:3000
+Snippet de código
+EMAIL_USER=seu-email@gmail.com
+EMAIL_PASS=sua-senha-de-app
+EMAIL_DESTINATION=email-destino@gmail.com
+Inicie: npm run dev
 
-🌐 Deploy
-O projeto está configurado para deploy contínuo via Vercel. Cada atualização na branch main reflete automaticamente no ambiente de produção.
+👨‍💻 Desenvolvedor
+Este projeto foi idealizado e desenvolvido por:
 
-📄 Licença
-Este projeto é de uso exclusivo da Abrasel Centro Sul do Paraná.
+Paulo Sergio do Amaral Filho
 
-Como adicionar ao seu projeto:
-Crie um arquivo chamado README.md na raiz da sua pasta.
+[GitHub](http://github.com/paulosrgf/)
 
-Cole o texto acima.
+[LinkedIn](https://www.linkedin.com/in/paulo-sergio-063238359/)
 
-Salve e faça o commit:
+"Transformando a gastronomia do Centro Sul do Paraná através da tecnologia."
 
-Bash
-git add README.md
-git commit -m "docs: add professional readme"
-git push origin main
+© 2026 - Desenvolvido para ABRASEL Centro Sul PR.
