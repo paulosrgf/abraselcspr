@@ -8,6 +8,16 @@ import { Calendar, MapPin, Filter, Globe, Star } from 'lucide-react';
 
 const EVENTS_DATA = [
   {
+  id: 0, // Id 0 para aparecer no topo
+  title: 'Abraseiros - Texas Edition',
+  date: '06 a 08 de Março',
+  location: 'Centro de Eventos Agrária - Guarapuava',
+  scope: 'Guarapuava',
+  description: 'Churrasco, Country e Cerveja. O Texas chegou em Guarapuava!',
+  category: 'Festival',
+  featured: true // Marcador para facilitar o destaque
+},
+  {
     id: 1,
     title: 'Encontro de Talentos',
     date: '03 a 07 de Fevereiro',

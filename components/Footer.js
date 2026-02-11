@@ -43,7 +43,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
              <Link href="/" className="block mb-4">
                 <Image
-                    src="/logos/abrasel-verde.png" // NOVO CAMINHO
+                    src="/logos/abrasel-verde.png" 
                     alt="ABRASEL"
                     width={180} 
                     height={60}
@@ -54,7 +54,7 @@ const Footer = () => {
             {/* Link do Instagram */}
             <div className="mt-4">
                 <a 
-                    href="https://instagram.com/abraselcspr"
+                    href="https://www.instagram.com/abraselcentrosulpr/"
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-white hover:text-amber-500 transition"
