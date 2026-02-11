@@ -6,7 +6,7 @@ import BenefitsSection from '../../components/BenefitsSection';
 import Image from 'next/image'; 
 import { MessageCircle, CheckCircle2 } from 'lucide-react';
 
-const WHATSAPP_NUMBER = "5542999999999"; 
+const WHATSAPP_NUMBER = "5542999172322"; 
 const WHATSAPP_MESSAGE = "Olá, gostaria de saber mais sobre como associar meu estabelecimento à ABRASEL Centro Sul do Paraná.";
 const whatsappLink = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
