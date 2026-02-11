@@ -16,7 +16,7 @@ const EVENTS_DATA = [
   description: 'Churrasco, Country e Cerveja. O Texas chegou em Guarapuava!',
   category: 'Festival',
   featured: true // Marcador para facilitar o destaque
-},
+  },
   {
     id: 1,
     title: 'Encontro de Talentos',
