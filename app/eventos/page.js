@@ -1,4 +1,3 @@
-// app/eventos/page.js
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -8,14 +7,14 @@ import { Calendar, MapPin, Filter, Globe, Star } from 'lucide-react';
 
 const EVENTS_DATA = [
   {
-  id: 0,
-  title: 'Abraseiros - Texas Edition',
-  date: '06 a 08 de Março',
-  location: 'Centro de Eventos Agrária - Guarapuava',
-  scope: 'Guarapuava',
-  description: 'Churrasco, Country e Cerveja. O Texas chegou em Guarapuava!',
-  category: 'Festival',
-  featured: true 
+    id: 0,
+    title: 'Abraseiros - Texas Edition',
+    date: '06 a 08 de Março',
+    location: 'Centro de Eventos Agrária - Guarapuava',
+    scope: 'Guarapuava',
+    description: 'Churrasco, Country e Cerveja. O Texas chegou em Guarapuava!',
+    category: 'Festival',
+    featured: true 
   },
   {
     id: 1,
@@ -179,7 +178,7 @@ export default function EventosPage() {
                   <MapPin className="mr-3 text-amber-500 flex-shrink-0" size={18} />
                   <span>{event.location}</span>
                 </div>
-                {/* CORREÇÃO AQUI: Substituí aspas por &quot; */}
+                {/* CORREÇÃO APLICADA ABAIXO NA LINHA 186 */}
                 <p className="text-gray-400 text-sm leading-relaxed italic border-t border-gray-50 pt-4">
                   &quot;{event.description}&quot;
                 </p>

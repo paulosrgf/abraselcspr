@@ -101,7 +101,7 @@ export default function AssociateProfilePage({ params }) {
               </p>
               
               <p className="text-gray-400 mb-8">
-                {/* CORREÇÃO AQUI: Substituí aspas simples por &apos; */}
+                {/* CORREÇÃO REALIZADA ABAIXO NA PALAVRA 'description' */}
                 *Esta é uma descrição gerada. Na versão real, este texto viria de um campo &apos;description&apos; no seu arquivo de dados ou CMS.*
               </p>
               

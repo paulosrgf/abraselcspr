@@ -33,7 +33,7 @@ const MANAGEMENT_TEAM = [
     position: 'Conselho Fiscal', 
     imageUrl: '/management/eduardo-szymonka.jpeg', 
     bio: 'Suporte técnico na fiscalização contábil e garantia da sustentabilidade da entidade.',
-    objectPosition: 'top' // 🚨 Ajuste de enquadramento para o rosto
+    objectPosition: 'top'
   },
   { 
     id: 5, 
@@ -41,7 +41,7 @@ const MANAGEMENT_TEAM = [
     position: 'Conselho de Administração', 
     imageUrl: '/management/mayara-monteiro.jpeg', 
     bio: 'Contribui para a inovação e o desenvolvimento de novas parcerias no setor de bares e restaurantes.',
-    objectPosition: 'top' // 🚨 Ajuste de enquadramento para o rosto
+    objectPosition: 'top'
   },
   { 
     id: 6, 
@@ -49,7 +49,7 @@ const MANAGEMENT_TEAM = [
     position: 'Conselho de Administração', 
     imageUrl: '/management/leonardo-sampaio.jpeg', 
     bio: 'Foco na integração da rede e compartilhamento de melhores práticas de gestão.',
-    objectPosition: 'top' // 🚨 Ajuste de enquadramento para o rosto
+    objectPosition: 'top'
   },
   { 
     id: 7, 
@@ -87,7 +87,7 @@ export default function InstitucionalPage() {
                 </div>
                 <h2 className="text-2xl font-black text-gray-900 mb-4 uppercase tracking-tighter">Missão</h2>
                 <p className="text-gray-500 leading-relaxed text-sm italic">
-                  "Promover o desenvolvimento sustentável do setor de bares e restaurantes, defendendo seus interesses e fomentando a inovação."
+                  &quot;Promover o desenvolvimento sustentável do setor de bares e restaurantes, defendendo seus interesses e fomentando a inovação.&quot;
                 </p>
             </div>
             
@@ -98,7 +98,7 @@ export default function InstitucionalPage() {
                 </div>
                 <h2 className="text-2xl font-black text-gray-900 mb-4 uppercase tracking-tighter">Visão</h2>
                 <p className="text-gray-500 leading-relaxed text-sm italic">
-                  "Ser reconhecida como a voz líder e referência em excelência para a gastronomia paranaense."
+                  &quot;Ser reconhecida como a voz líder e referência em excelência para a gastronomia paranaense.&quot;
                 </p>
             </div>
             
@@ -109,7 +109,7 @@ export default function InstitucionalPage() {
                 </div>
                 <h2 className="text-2xl font-black text-gray-900 mb-4 uppercase tracking-tighter">Valores</h2>
                 <p className="text-gray-500 leading-relaxed text-sm italic">
-                  "Ética, transparência, foco no associado e valorização das raízes gastronômicas regionais."
+                  &quot;Ética, transparência, foco no associado e valorização das raízes gastronômicas regionais.&quot;
                 </p>
             </div>
         </div>
@@ -125,7 +125,6 @@ export default function InstitucionalPage() {
             <div className="w-20 h-1.5 bg-amber-500 mx-auto rounded-full"></div>
           </div>
           
-          {/* Grid de 3 Colunas com centralização inteligente do último item (Advogado) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
             {MANAGEMENT_TEAM.map((member, index) => (
               <div 
@@ -134,19 +133,17 @@ export default function InstitucionalPage() {
                   index === 6 ? 'lg:col-start-2' : '' 
                 }`}
               >
-                {/* Container da Imagem */}
                 <div className="relative w-48 h-48 mx-auto mb-6 rounded-[2.5rem] overflow-hidden shadow-lg border-4 border-white group-hover:border-green-700 transition-all duration-300 transform group-hover:-translate-y-2">
                   <Image 
                     src={member.imageUrl} 
                     alt={member.name} 
                     fill 
                     className="object-cover"
-                    style={{ objectPosition: member.objectPosition || 'center' }} // 🚨 Aplica o enquadramento customizado
+                    style={{ objectPosition: member.objectPosition || 'center' }}
                     sizes="200px"
                   />
                 </div>
                 
-                {/* Textos do Card */}
                 <h3 className="text-xl font-black text-gray-900 mb-1 uppercase tracking-tight leading-tight px-4">
                   {member.name}
                 </h3>
@@ -154,7 +151,7 @@ export default function InstitucionalPage() {
                   {member.position}
                 </p>
                 <p className="text-gray-400 text-sm leading-relaxed max-w-[250px] mx-auto italic">
-                  "{member.bio}"
+                  &quot;{member.bio}&quot;
                 </p>
               </div>
             ))}
