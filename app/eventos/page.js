@@ -8,14 +8,14 @@ import { Calendar, MapPin, Filter, Globe, Star } from 'lucide-react';
 
 const EVENTS_DATA = [
   {
-  id: 0, // Id 0 para aparecer no topo
+  id: 0,
   title: 'Abraseiros - Texas Edition',
   date: '06 a 08 de Março',
   location: 'Centro de Eventos Agrária - Guarapuava',
   scope: 'Guarapuava',
   description: 'Churrasco, Country e Cerveja. O Texas chegou em Guarapuava!',
   category: 'Festival',
-  featured: true // Marcador para facilitar o destaque
+  featured: true 
   },
   {
     id: 1,
@@ -121,7 +121,6 @@ export default function EventosPage() {
     <main className="min-h-screen bg-[#f8fafc]">
       <Header />
 
-      {/* Título Principal */}
       <div className="pt-16 pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="border-b border-gray-200 pb-10">
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter uppercase leading-none">
@@ -133,7 +132,6 @@ export default function EventosPage() {
         </div>
       </div>
 
-      {/* Filtros */}
       <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center gap-3">
           {['Todos', 'Guarapuava', 'Brasil', 'Internacional'].map((filter) => (
@@ -152,7 +150,6 @@ export default function EventosPage() {
         </div>
       </section>
 
-      {/* Grid de Cards */}
       <section className="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredEvents.map((event) => (
@@ -182,12 +179,12 @@ export default function EventosPage() {
                   <MapPin className="mr-3 text-amber-500 flex-shrink-0" size={18} />
                   <span>{event.location}</span>
                 </div>
+                {/* CORREÇÃO AQUI: Substituí aspas por &quot; */}
                 <p className="text-gray-400 text-sm leading-relaxed italic border-t border-gray-50 pt-4">
-                  "{event.description}"
+                  &quot;{event.description}&quot;
                 </p>
               </div>
 
-              {/* 🚨 SELO DINÂMICO AQUI */}
               <div className="pt-4 border-t border-gray-100">
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-300 transition-colors group-hover:text-green-700/50">
                   {event.scope === 'Guarapuava' || event.scope === 'Paraná' 
