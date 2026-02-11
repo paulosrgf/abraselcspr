@@ -87,7 +87,7 @@ const Footer = () => {
             <h4 className="text-white text-lg font-bold mb-4">Fale Conosco</h4>
             <address className="text-sm not-italic space-y-2">
                 <p>Para suporte geral:</p>
-                <p>E-mail: contato@abraselcspr.com.br</p>
+                <p>E-mail: abraselcspr@gmail.com</p>
                 <p className="mt-4 pt-2 border-t border-gray-700">
                     <Link href="/associe-se" className="text-green-500 hover:text-green-400 font-semibold underline">
                         Atendimento Rápido (WhatsApp)
