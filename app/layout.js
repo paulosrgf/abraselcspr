@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Abrasel CSPR",
   description: "Portal oficial da Abrasel Centro Sul do Paraná - Fortalecendo a gastronomia regional em Guarapuava e região.",
+  icons: {
+    icon: '/favicon.ico', // Isto aponta para o ficheiro que meteste na pasta app
+  },
 };
 
 export default function RootLayout({ children }) {
