@@ -30,7 +30,7 @@ export default function Home() {
             {/* Imagem do Evento */}
             <div className="w-full md:w-1/2 relative min-h-[300px] bg-zinc-800 overflow-hidden">
               <Image
-                src="/images/eventos/saboresdeinverno.png"
+                src="/images/eventos/saboresdeinverno.jpeg"
                 alt="Festival Sabores de Inverno"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -58,7 +58,7 @@ export default function Home() {
                   regional.
                 </p>
                 <p className="text-amber-500 font-black uppercase tracking-widest text-sm">
-                  03 a 05 de Julho | Centro de Eventos Cidade dos Lagos
+                  03 a 05 de Julho | Centro de Eventos
                 </p>
               </div>
 
