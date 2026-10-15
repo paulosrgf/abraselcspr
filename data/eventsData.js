@@ -2,40 +2,16 @@
 
 export const UPCOMING_EVENTS = [
   {
-    id: 11,
-    title: "Festival Sabores de Inverno",
-    date: "03 a 05 de Julho",
+    id: 12,
+    title: "Guarapuava Gastronômica - Edição Primavera",
+    date: "30 de Outubro a 01 de Novembro",
     location: "Centro de Eventos Cidade dos Lagos - Guarapuava",
     description:
-      "Venha aquecer seu paladar com o melhor da gastronomia regional nos estabelecimentos parceiros.",
+      "Gastronomia, cervejarias, shows, artesanato e área kids. Entrada e estacionamento gratuitos. Show de Jeann & Julio no dia 31 de outubro, às 21h30. Patrocínio master: Itaipu Binacional.",
     type: "Festival",
-  },
-  {
-    id: 6,
-    title: "Semana da Alimentação Fora do Lar / Equipotel",
-    date: "14 a 18 de Setembro",
-    location: "São Paulo - SP",
-    description:
-      "Equipotel (15 a 18/09): A principal feira de hospitalidade da América Latina.",
-    type: "Feira",
-  },
-  {
-    id: 7,
-    title: "O Quilo é Nosso",
-    date: "15 a 25 de Setembro",
-    location: "Nacional",
-    description:
-      "Concurso que elege o melhor restaurante de comida a quilo do Brasil.",
-    type: "Concurso",
-  },
-  {
-    id: 8,
-    title: "Semana da Criança",
-    date: "05 a 10 de Outubro",
-    location: "Regional",
-    description:
-      "Ações especiais voltadas ao público infantil nos estabelecimentos associados.",
-    type: "Regional",
+    href: "/guarapuava-gastronomica-de-primavera",
+    image:
+      "/images/eventos/guarapuava-gastronomica-primavera-destaque.jpg",
   },
   {
     id: 9,
