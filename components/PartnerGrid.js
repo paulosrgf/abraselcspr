@@ -18,7 +18,7 @@ const PARTNERS = [
   { name: 'Ticket (Edenred)', url: 'https://www.ticket.com.br/', logoUrl: '/logos/ticket_1.png' },
   { name: 'Alelo', url: 'https://www.alelo.com.br/', logoUrl: '/logos/alelo_2.png' },
   { name: 'BAT Brasil', url: 'https://www.batbrasil.com/', logoUrl: '/logos/bat_brasil.png' },
-  { name: 'Ambev', url: 'https://www.ambev.com.br/', logoUrl: '/logos/ambev.png' },
+  { name: 'Itaipu Binacional', url: 'https://www.itaipu.gov.br/', logoUrl: '/logos/itaipu.png' },
   { name: 'SEBRAE', url: 'https://sebrae.com.br/', logoUrl: '/logos/sebrae.png' },
 ];
 
@@ -26,7 +26,7 @@ const PartnerGrid = () => {
   return (
     <section className="py-24 bg-[#f8fafc]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Cabeçalho */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 border border-green-100 text-green-700 text-xs font-black uppercase tracking-widest mb-4">
@@ -38,14 +38,14 @@ const PartnerGrid = () => {
           </h2>
           <div className="w-20 h-1.5 bg-amber-500 mx-auto rounded-full mt-6"></div>
         </div>
-        
+
         {/* Grid de Logos */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
           {PARTNERS.map((partner) => (
-            <Link 
-              key={partner.name} 
-              href={partner.url} 
-              target="_blank" 
+            <Link
+              key={partner.name}
+              href={partner.url}
+              target="_blank"
               rel="noopener noreferrer"
               className="group relative w-full h-40 p-8 bg-white rounded-[2rem] flex items-center justify-center 
                          border border-gray-100 shadow-sm hover:shadow-xl hover:border-green-700/30 
@@ -53,18 +53,18 @@ const PartnerGrid = () => {
               aria-label={`Visitar site de ${partner.name}`}
             >
               <div className="relative w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100">
-                <Image 
-                  src={partner.logoUrl} 
-                  alt={partner.name} 
-                  fill 
+                <Image
+                  src={partner.logoUrl}
+                  alt={partner.name}
+                  fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 50vw, 20vw" 
+                  sizes="(max-width: 768px) 50vw, 20vw"
                 />
               </div>
             </Link>
           ))}
         </div>
-        
+
         <div className="text-center mt-20">
           <p className="text-gray-400 text-sm italic font-medium max-w-2xl mx-auto leading-relaxed">
             Trabalhamos em conjunto com as maiores marcas do país para fortalecer a gastronomia no Centro Sul do Paraná.

@@ -98,11 +98,10 @@ export default function EventosPage() {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${
-                activeFilter === filter
+              className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${activeFilter === filter
                   ? "bg-green-700 text-white border-green-700 shadow-lg shadow-green-700/20"
                   : "bg-white text-gray-500 border-gray-200 hover:border-green-700 hover:text-green-700"
-              }`}
+                }`}
             >
               {filter}
             </button>

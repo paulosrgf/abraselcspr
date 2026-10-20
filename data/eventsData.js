@@ -1,34 +1,71 @@
 // data/eventsData.js
 
+// Alcance de cada evento (usado nos filtros e nas etiquetas da página /eventos)
+export const EVENT_SCOPES = {
+  guarapuava: { label: "Guarapuava" },
+  brasil: { label: "Brasil" },
+  internacional: { label: "Internacional" },
+};
+
+// Datas em formato AAAA-MM-DD (start e end). Eventos que já passaram
+// somem sozinhos da página, então não precisa apagar na mão.
 export const UPCOMING_EVENTS = [
   {
     id: 12,
     title: "Guarapuava Gastronômica - Edição Primavera",
     date: "30 de Outubro a 01 de Novembro",
-    location: "Centro de Eventos Cidade dos Lagos - Guarapuava",
+    start: "2026-10-30",
+    end: "2026-11-01",
+    location: "Centro de Eventos Cidade dos Lagos - Guarapuava/PR",
     description:
-      "Gastronomia, cervejarias, shows, artesanato e área kids. Entrada e estacionamento gratuitos. Show de Jeann & Julio no dia 31 de outubro, às 21h30. Patrocínio master: Itaipu Binacional.",
+      "Gastronomia, cervejarias, shows, artesanato e área kids, com entrada e estacionamento gratuitos. Show de Jeann & Julio no dia 31 de outubro, às 21h30. Patrocínio master: Itaipu Binacional.",
     type: "Festival",
+    scope: "guarapuava",
+    featured: true,
+    countdown: true,
     href: "/guarapuava-gastronomica-de-primavera",
-    image:
-      "/images/eventos/guarapuava-gastronomica-primavera-destaque.jpg",
+    image: "/images/eventos/guarapuava-gastronomica-primavera-destaque.jpg",
   },
   {
     id: 9,
-    title: "Bar em Bar",
+    title: "Festival Bar em Bar",
     date: "29 de Outubro a 15 de Novembro",
-    location: "Nacional",
+    start: "2026-10-29",
+    end: "2026-11-15",
+    location: "Em bares de todo o Brasil",
     description:
-      "O festival que celebra a cultura dos botecos e a gastronomia de bar.",
+      "20ª edição do festival que celebra a cultura dos botecos. Cada bar participante cria um petisco inédito e o vende a preço promocional durante todo o período. Inscrições em breve.",
     type: "Festival",
+    scope: "brasil",
+    href: "https://abrasel.com.br/agenda/festival-bar-em-bar/",
+    external: true,
+  },
+  {
+    id: 13,
+    title: "HFN - Hotel & Food Nordeste",
+    date: "04 a 06 de Novembro",
+    start: "2026-11-04",
+    end: "2026-11-06",
+    location: "Centro de Convenções de Pernambuco - Olinda/PE",
+    description:
+      "8ª edição da maior feira de hotelaria e alimentação do Nordeste, com fórum de conteúdo e rodadas de negócios para bares, restaurantes e hotéis. Credenciamento aberto no site oficial.",
+    type: "Feira",
+    scope: "brasil",
+    href: "https://hfne.com.br/",
+    external: true,
   },
   {
     id: 10,
-    title: "Encontro Nacional da Abrasel no Ceará",
+    title: "45º Encontro Nacional Abrasel",
     date: "24 a 26 de Novembro",
-    location: "Fortaleza - CE",
+    start: "2026-11-24",
+    end: "2026-11-26",
+    location: "Fortaleza/CE",
     description:
-      "Encerramento do ano com debates e integração da rede Abrasel.",
-    type: "Nacional",
+      "Encontro itinerante que reúne empreendedores do setor de alimentação fora do lar para debater o mercado e fechar novos negócios. Gratuito para associados Abrasel.",
+    type: "Encontro",
+    scope: "brasil",
+    href: "https://abrasel.com.br/agenda/45-encontro-nacional-abrasel-1/",
+    external: true,
   },
 ];
