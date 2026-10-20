@@ -6,15 +6,15 @@ import Image from 'next/image';
 const ITAIPU_URL = 'https://www.itaipu.gov.br';
 
 const SIZES = {
-    sm: { w: 110, h: 44 },
-    md: { w: 170, h: 68 },
-    lg: { w: 240, h: 96 },
+    sm: { w: 130, h: 52 },
+    md: { w: 200, h: 80 },
+    lg: { w: 280, h: 112 },
 };
 
 export default function SponsorBanner({
     placement = 'home-topo',
     href = ITAIPU_URL,
-    logoSrc = '/logos/itaipu.png',
+    logoSrc = '/logos/logotipo-itaipu-preferencial.jpg',
     alt = 'Itaipu Binacional',
     label = 'Patrocínio',
     size = 'md',
@@ -93,7 +93,7 @@ export default function SponsorBanner({
                     aria-hidden="true"
                     className="hidden h-px w-16 bg-gradient-to-r from-transparent to-green-700/40 sm:block md:w-32"
                 />
-                <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-5">
+                <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
                     <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-500">
                         {label}
                     </span>
