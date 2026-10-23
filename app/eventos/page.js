@@ -1,172 +1,70 @@
-"use client";
+// app/eventos/page.js
+import Link from 'next/link';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import EventsHero from '../../components/EventsHero';
+import EventsExplorer from '../../components/EventsExplorer';
+import { UPCOMING_EVENTS } from '../../data/eventsData';
+import { absoluteUrl, SITE_URL } from '../../data/eventsUtils';
 
-import { useState, useMemo } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { Calendar, MapPin, Filter, Globe, Star } from "lucide-react";
+export const metadata = {
+  title: 'Eventos | Abrasel Centro-Sul do Paraná',
+  description:
+    'Agenda 2026 da Abrasel Centro-Sul do Paraná: Guarapuava Gastronômica, Festival Bar em Bar, HFN e Encontro Nacional Abrasel. Datas, locais e como participar.',
+};
 
-const EVENTS_DATA = [
-  {
-    id: 11,
-    title: "Festival Sabores de Inverno",
-    date: "03 a 05 de Julho",
-    location: "Centro de Eventos Cidade dos Lagos - Guarapuava",
-    scope: "Guarapuava",
-    description:
-      "Venha aquecer seu paladar com o melhor da gastronomia regional nos estabelecimentos parceiros.",
-    category: "Festival",
-  },
-  {
-    id: 6,
-    title: "Semana da Alimentação Fora do Lar em SP",
-    date: "14 a 18 de Setembro",
-    location: "São Paulo - SP",
-    scope: "Brasil",
-    description:
-      "Uma semana intensiva de eventos, incluindo a Equipotel (15 a 18 de setembro).",
-    category: "Negócios",
-  },
-  {
-    id: 7,
-    title: "O Quilo é Nosso",
-    date: "15 a 25 de Setembro",
-    location: "Guarapuava e todo o Brasil",
-    scope: "Guarapuava",
-    description:
-      "Concurso que elege o melhor restaurante de comida a quilo do país.",
-    category: "Concurso",
-  },
-  {
-    id: 8,
-    title: "Semana da Criança",
-    date: "05 a 10 de Outubro",
-    location: "Guarapuava e Região",
-    scope: "Guarapuava",
-    description:
-      "Ações sociais e menus especiais voltados para o público infantil em nossos associados.",
-    category: "Social",
-  },
-  {
-    id: 9,
-    title: "Bar em Bar",
-    date: "29 de Outubro a 15 de Novembro",
-    location: "Guarapuava e todo o Brasil",
-    scope: "Guarapuava",
-    description:
-      "O festival que celebra a cultura dos botecos com petiscos exclusivos.",
-    category: "Festival",
-  },
-  {
-    id: 10,
-    title: "Encontro Nacional da Abrasel no Ceará",
-    date: "24 a 26 de Novembro",
-    location: "Fortaleza - CE",
-    scope: "Brasil",
-    description:
-      "Encerramento do ano com debates sobre o futuro da gastronomia e turismo.",
-    category: "Congresso",
-  },
-];
+// Dados estruturados: ajudam o Google a mostrar os eventos nos resultados de busca
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': UPCOMING_EVENTS.map((ev) => ({
+    '@type': 'Event',
+    name: ev.title,
+    description: ev.description,
+    startDate: ev.start,
+    endDate: ev.end,
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
+    location: { '@type': 'Place', name: ev.location, address: ev.location },
+    url: absoluteUrl(ev.href),
+    ...(ev.image && { image: [`${SITE_URL}${ev.image}`] }),
+    ...(ev.organizer && {
+      organizer: { '@type': 'Organization', name: ev.organizer },
+    }),
+  })),
+};
 
 export default function EventosPage() {
-  const [activeFilter, setActiveFilter] = useState("Todos");
-
-  const filteredEvents = useMemo(() => {
-    if (activeFilter === "Todos") return EVENTS_DATA;
-    return EVENTS_DATA.filter((event) => event.scope === activeFilter);
-  }, [activeFilter]);
-
   return (
     <main className="min-h-screen bg-[#f8fafc]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+
       <Header />
 
-      <div className="pt-16 pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-b border-gray-200 pb-10">
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter uppercase leading-none">
-            Agenda <span className="text-green-700">2026</span>
-          </h1>
-          <p className="text-gray-500 mt-4 text-lg md:text-xl max-w-2xl font-medium">
-            Calendário oficial: Das ações locais em Guarapuava aos grandes
-            congressos nacionais.
+      <EventsHero events={UPCOMING_EVENTS} />
+
+      <EventsExplorer events={UPCOMING_EVENTS} />
+
+      {/* Chamada final */}
+      <section className="border-t border-gray-100 bg-white py-16">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <h2 className="text-2xl font-black text-gray-900 md:text-3xl">
+            Associados vivem a Abrasel por dentro
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            O Encontro Nacional Abrasel, por exemplo, é gratuito para associados.
+            Faça parte da rede e aproveite.
           </p>
-        </div>
-      </div>
-
-      <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center gap-3">
-          {["Todos", "Guarapuava", "Brasil", "Internacional"].map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${activeFilter === filter
-                  ? "bg-green-700 text-white border-green-700 shadow-lg shadow-green-700/20"
-                  : "bg-white text-gray-500 border-gray-200 hover:border-green-700 hover:text-green-700"
-                }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredEvents.map((event) => (
-            <div
-              key={event.id}
-              className="bg-white rounded-[2.5rem] p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:border-green-700/20 transition-all duration-500 group flex flex-col h-full"
-            >
-              <div className="flex justify-between items-start mb-6">
-                <div className="bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest">
-                  {event.category}
-                </div>
-                <div
-                  className={`${event.scope === "Internacional" ? "text-blue-500" : "text-amber-500"}`}
-                >
-                  {event.scope === "Internacional" ? (
-                    <Globe size={20} />
-                  ) : (
-                    <Star size={20} />
-                  )}
-                </div>
-              </div>
-
-              <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tighter leading-tight mb-4 group-hover:text-green-700 transition-colors">
-                {event.title}
-              </h3>
-
-              <div className="space-y-4 mb-8 flex-1">
-                <div className="flex items-center text-gray-900 font-black text-xs uppercase tracking-widest">
-                  <Calendar className="mr-3 text-green-700" size={18} />
-                  {event.date}
-                </div>
-                <div className="flex items-start text-gray-500 text-sm font-medium">
-                  <MapPin
-                    className="mr-3 text-amber-500 flex-shrink-0"
-                    size={18}
-                  />
-                  <span>{event.location}</span>
-                </div>
-                <p className="text-gray-400 text-sm leading-relaxed italic border-t border-gray-50 pt-4">
-                  &quot;{event.description}&quot;
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-gray-100">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-300 transition-colors group-hover:text-green-700/50">
-                  {event.scope === "Guarapuava" || event.scope === "Paraná"
-                    ? "Abrasel Centro Sul PR"
-                    : "Abrasel"}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-20 p-8 bg-amber-50 rounded-[2rem] border border-amber-100 text-center">
-          <p className="text-amber-800 text-[10px] font-black uppercase tracking-[0.15em]">
-            * Datas e locais sujeitos a alteração pela organização nacional.
-          </p>
+          <Link
+            href="/associe-se"
+            className="mt-8 inline-block rounded-full bg-amber-500 px-10 py-4 text-lg font-extrabold text-black shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-xl"
+          >
+            QUERO ME ASSOCIAR
+          </Link>
         </div>
       </section>
 
