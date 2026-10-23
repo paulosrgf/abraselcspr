@@ -9,6 +9,11 @@ export const EVENT_SCOPES = {
 
 // Datas em formato AAAA-MM-DD (start e end). Eventos que já passaram
 // somem sozinhos da página, então não precisa apagar na mão.
+//
+// Para adicionar um evento novo, copie um bloco abaixo e troque os dados.
+//  - scope: "guarapuava" | "brasil" | "internacional"
+//  - external: true se o link for de outro site (abre em nova aba)
+//  - featured: true para o card grande de destaque (use em um evento só)
 export const UPCOMING_EVENTS = [
   {
     id: 12,
@@ -21,6 +26,7 @@ export const UPCOMING_EVENTS = [
       "Gastronomia, cervejarias, shows, artesanato e área kids, com entrada e estacionamento gratuitos. Show de Jeann & Julio no dia 31 de outubro, às 21h30. Patrocínio master: Itaipu Binacional.",
     type: "Festival",
     scope: "guarapuava",
+    organizer: "Abrasel Centro-Sul do Paraná",
     featured: true,
     countdown: true,
     href: "/guarapuava-gastronomica-de-primavera",
@@ -37,6 +43,7 @@ export const UPCOMING_EVENTS = [
       "20ª edição do festival que celebra a cultura dos botecos. Cada bar participante cria um petisco inédito e o vende a preço promocional durante todo o período. Inscrições em breve.",
     type: "Festival",
     scope: "brasil",
+    organizer: "Abrasel",
     href: "https://abrasel.com.br/agenda/festival-bar-em-bar/",
     external: true,
   },
@@ -51,6 +58,7 @@ export const UPCOMING_EVENTS = [
       "8ª edição da maior feira de hotelaria e alimentação do Nordeste, com fórum de conteúdo e rodadas de negócios para bares, restaurantes e hotéis. Credenciamento aberto no site oficial.",
     type: "Feira",
     scope: "brasil",
+    organizer: "Insight Feiras & Negócios",
     href: "https://hfne.com.br/",
     external: true,
   },
@@ -65,6 +73,7 @@ export const UPCOMING_EVENTS = [
       "Encontro itinerante que reúne empreendedores do setor de alimentação fora do lar para debater o mercado e fechar novos negócios. Gratuito para associados Abrasel.",
     type: "Encontro",
     scope: "brasil",
+    organizer: "Abrasel",
     href: "https://abrasel.com.br/agenda/45-encontro-nacional-abrasel-1/",
     external: true,
   },
